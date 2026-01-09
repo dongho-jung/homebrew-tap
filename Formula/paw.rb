@@ -5,15 +5,15 @@
 class Paw < Formula
   desc "A project management system built on Claude Code"
   homepage "https://github.com/dongho-jung/paw"
-  version "0.3.1"
+  version "0.3.2"
   license "MIT"
 
   depends_on "tmux"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.3.1/paw_0.3.1_darwin_amd64.tar.gz"
-      sha256 "37487d495f8e8cbbef2e76620fc4355558543e62338878d06bfed62d304b40fd"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.3.2/paw_0.3.2_darwin_amd64.tar.gz"
+      sha256 "ea4507626ef88f34318b148e47941fb2b9f3e55445ed26cf6a7384853b8c3d45"
 
       def install
         bin.install "paw"
@@ -24,8 +24,8 @@ class Paw < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.3.1/paw_0.3.1_darwin_arm64.tar.gz"
-      sha256 "19c3695b58247dd003e0b9a3219754b8c3c93603e31d55563362d0cd2485ebb3"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.3.2/paw_0.3.2_darwin_arm64.tar.gz"
+      sha256 "6b595fe9f76debfe5668b87c94320be4959d2a08661525b6fff9b8de8e03d3da"
 
       def install
         bin.install "paw"
@@ -39,8 +39,8 @@ class Paw < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.3.1/paw_0.3.1_linux_amd64.tar.gz"
-      sha256 "de3d3e61b8732cfe6e0a32989730cbc7ffd82c34d5ea0134bddf248ec24e80a7"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.3.2/paw_0.3.2_linux_amd64.tar.gz"
+      sha256 "286a39fd2f857747c678490c6993061e0ea20a2975ea5c606dac816a73e2a0b7"
       def install
         bin.install "paw"
         # Install paw-notify.app for macOS desktop notifications
@@ -50,8 +50,8 @@ class Paw < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.3.1/paw_0.3.1_linux_arm64.tar.gz"
-      sha256 "0cf41fc84d4a1aca0e9c5c1e48a7267fe61d69313ef23abfb18665a1cb175b7a"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.3.2/paw_0.3.2_linux_arm64.tar.gz"
+      sha256 "c9a504654a6307d976680547d9f5e43e100518c718f5e96a65500b810dfcba16"
       def install
         bin.install "paw"
         # Install paw-notify.app for macOS desktop notifications
