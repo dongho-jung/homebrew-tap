@@ -5,84 +5,45 @@
 class Paw < Formula
   desc "A project management system built on Claude Code"
   homepage "https://github.com/dongho-jung/paw"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   depends_on "tmux"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.5.0/paw_0.5.0_darwin_amd64.tar.gz"
-      sha256 "4baac3ee5639db3895fcc597b52c055f6a7f72f72f1f60ae22a1494d43bcebe5"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.6.0/paw_0.6.0_darwin_amd64.tar.gz"
+      sha256 "631f0eb00e2e17c43a03f40904617bb7323cd8348d7e1a6231583b6820541416"
 
       def install
         bin.install "paw"
-        # Install paw-notify.app for macOS desktop notifications
-        if File.exist?("paw-notify.app")
-          (share/"paw").install "paw-notify.app"
-        end
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.5.0/paw_0.5.0_darwin_arm64.tar.gz"
-      sha256 "55f43ec4ba0574c7b32bfc0a3ec0a33126051e5001b756d457e1a0dd76e9a908"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.6.0/paw_0.6.0_darwin_arm64.tar.gz"
+      sha256 "d01cf13f12e661f888724404d60a69877b201f9b8d1ab892382cd5da1d8f19f6"
 
       def install
         bin.install "paw"
-        # Install paw-notify.app for macOS desktop notifications
-        if File.exist?("paw-notify.app")
-          (share/"paw").install "paw-notify.app"
-        end
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.5.0/paw_0.5.0_linux_amd64.tar.gz"
-      sha256 "17e8a2935782158c6f85f96aa124fb74815926d8d26c0e4c417c448a8457e050"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.6.0/paw_0.6.0_linux_amd64.tar.gz"
+      sha256 "7dd17e0187ed1de9db682f0cbda74f45f67d6e69c579fca6ac4bf5a8bdd190ee"
       def install
         bin.install "paw"
-        # Install paw-notify.app for macOS desktop notifications
-        if File.exist?("paw-notify.app")
-          (share/"paw").install "paw-notify.app"
-        end
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.5.0/paw_0.5.0_linux_arm64.tar.gz"
-      sha256 "c55edb850e75ae22b477bafa9c4d97f8ca8c1cde7705e297d2b77a0468027fcc"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.6.0/paw_0.6.0_linux_arm64.tar.gz"
+      sha256 "1d7747ad032e503db9668f624ccd32ea8616e73d9a5df521ee61a98139a0e981"
       def install
         bin.install "paw"
-        # Install paw-notify.app for macOS desktop notifications
-        if File.exist?("paw-notify.app")
-          (share/"paw").install "paw-notify.app"
-        end
       end
     end
-  end
-
-  def post_install
-    # Copy paw-notify.app to user's local share directory
-    if File.exist?("#{share}/paw/paw-notify.app")
-      user_share = "#{ENV["HOME"]}/.local/share/paw"
-      mkdir_p user_share unless File.directory?(user_share)
-      system "rm", "-rf", "#{user_share}/paw-notify.app"
-      system "cp", "-R", "#{share}/paw/paw-notify.app", user_share
-      # Remove quarantine attribute and sign
-      system "xattr", "-cr", "#{user_share}/paw-notify.app"
-      system "codesign", "-fs", "-", "#{user_share}/paw-notify.app"
-    end
-  end
-
-  def caveats
-    <<~EOS
-      paw-notify.app has been installed to ~/.local/share/paw/
-
-      To enable desktop notifications, you may need to:
-      1. Run: paw check
-      2. Grant notification permissions when prompted
-    EOS
   end
 
   test do
