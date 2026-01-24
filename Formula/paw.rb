@@ -5,23 +5,23 @@
 class Paw < Formula
   desc "A project management system built on Claude Code"
   homepage "https://github.com/dongho-jung/paw"
-  version "0.7.3"
+  version "0.8.0"
   license "MIT"
 
   depends_on "tmux"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.7.3/paw_0.7.3_darwin_amd64.tar.gz"
-      sha256 "9f4bbe7d73c988d417db27fa73d07db89116bafba26c279c6a28126bb098d296"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.8.0/paw_0.8.0_darwin_amd64.tar.gz"
+      sha256 "c1b2772eb7f1d6f78430328eba62e9a7c38d44760c665fe24223e04f29e449d3"
 
       def install
         bin.install "paw"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.7.3/paw_0.7.3_darwin_arm64.tar.gz"
-      sha256 "d042a2f062a1438ac4687c1ac5a1379977ea183021f10e67cbed5bb894260bed"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.8.0/paw_0.8.0_darwin_arm64.tar.gz"
+      sha256 "903f91b809ace73a398145d252c27c9814cfbd6f47db591c5b296af11f5fe2e8"
 
       def install
         bin.install "paw"
@@ -31,15 +31,15 @@ class Paw < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.7.3/paw_0.7.3_linux_amd64.tar.gz"
-      sha256 "7fdb78594c19875181af208986ed67b2ec5b415d1e8af15958ef8ec5e153559e"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.8.0/paw_0.8.0_linux_amd64.tar.gz"
+      sha256 "1b9cd7d444fc918a70d94a08801b67ac7994c5055f947e34fa26a98bc74d4260"
       def install
         bin.install "paw"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dongho-jung/paw/releases/download/v0.7.3/paw_0.7.3_linux_arm64.tar.gz"
-      sha256 "56830bc1051c031e58d91a44efe5aabd82b4a42a526a36ef076f3f76ca03b5d9"
+      url "https://github.com/dongho-jung/paw/releases/download/v0.8.0/paw_0.8.0_linux_arm64.tar.gz"
+      sha256 "ceabff28535dfa5b5d004bfa0929af58a32379953e6346d23f5b6d18f631e4aa"
       def install
         bin.install "paw"
       end
